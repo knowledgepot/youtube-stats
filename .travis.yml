@@ -1,16 +1,26 @@
-sudo: required
-services:
-  - docker
+language: node_js
+node_js:
+  - 11.6.0
+ cache: yarn
 
 before_install:
-  - docker build -t yimlingloo/reactapp -f Dockerfile.dev .
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 
+install:
+  - yarn install
+
 script:
-  - docker run yimlingloo/reactapp run npm test
-  - bundle exec rspec
+  - yarn test
+  - yarn run build
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  on:
+    branch:gh-pages
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
