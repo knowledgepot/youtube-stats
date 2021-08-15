@@ -7,3 +7,4 @@ before_install:
   
 script:
   - docker run yimlingloo/reactapp npm run test -- --coverage
+  - echo "Hello World"
