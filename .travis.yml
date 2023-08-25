@@ -3,8 +3,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t yimlingloo/reactapp -f Dockerfile.dev .
+  - docker build -t kowledgepot/reactapp -f Dockerfile.dev .
   
 script:
-  - docker run yimlingloo/reactapp npm run test -- --coverage
-  - echo "Hello World"
+  - docker run kowledgepot/reactapp npm run test -- --coverage
+
