@@ -13,10 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js 16
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-        cache: 'npm'
-    - run: export PATH=$PATH:$HOME/node_modules
+    - name: Install react-scripts
+      run: npm install react-scripts
+    - name: Add node_modules to PATH
+      run: echo "export PATH=$PATH:$HOME/node_modules" >> ~/.bashrc
     - run: npm run build --if-present
