@@ -2,9 +2,9 @@ name: youtube-stats Actions CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "CIbranch" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "CIbranch" ]
 
 jobs:
   build:
