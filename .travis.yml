@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t kowledgepot/reactapp -f Dockerfile.dev .
+  - docker build -t reactapp -f Dockerfile .
   
 script:
-  - docker run kowledgepot/reactapp npm run test -- --coverage
+  - docker run reactapp npm run test -- --coverage
 
 
 
