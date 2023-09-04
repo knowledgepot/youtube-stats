@@ -12,6 +12,3 @@ script:
   - yarn --frozen-lockfile
   - docker run reactapp npm run test -- --coverage
 
-
-
-
