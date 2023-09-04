@@ -1,10 +1,11 @@
 language: node_js
+node_js:
+  - 4
 services:
   - docker
 
 before_install:
   - docker build -t reactapp -f Dockerfile .
-  - nvm install 4
 
 script:
   - docker run reactapp npm run test -- --coverage
