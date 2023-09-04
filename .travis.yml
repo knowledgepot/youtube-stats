@@ -8,6 +8,8 @@ before_install:
   - docker build -t reactapp -f Dockerfile .
   
 script:
+  - yarn cache clean
+  - yarn --frozen-lockfile
   - docker run reactapp npm run test -- --coverage
 
 
