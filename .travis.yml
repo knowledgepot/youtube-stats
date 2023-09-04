@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 16  # Use a more recent Node.js version, such as 16
+  - 14  # Use a more recent Node.js version, such as 16
 services:
   - docker
 
