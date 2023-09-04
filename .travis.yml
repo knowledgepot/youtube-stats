@@ -1,15 +1,10 @@
 language: node_js
-node_js:
-  - 14  # Use a more recent Node.js version, such as 16
 services:
   - docker
 
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.22.19
   - docker build -t reactapp -f Dockerfile .
-  
-script:
-  - yarn cache clean
-  - yarn --frozen-lockfile
-  - docker run reactapp npm run test -- --coverage
+  - nvm install 4
 
+script:
+  - docker run reactapp npm run test -- --coverage
